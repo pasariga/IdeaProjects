@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>员工信息</title>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: "Microsoft YaHei", Arial, sans-serif;
+            background-color: #f7f7f7;
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 50px;
+            margin-bottom: 30px;
+            font-size: 28px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: white;
+        }
+
+        th, td {
+            border: 1px solid #eee;
+            text-align: center;
+            padding: 18px;
+            font-size: 16px;
+        }
+
+        th {
+            font-weight: bold;
+            background-color: #fafafa;
+        }
+
+        img {
+            width: 70px;
+            height: 70px;
+            object-fit: contain;
+        }
+    </style>
+</head>
+
+<body>
+
+<h1>员工信息列表展示</h1>
+
+<table>
+    <thead>
+    <tr>
+        <th>姓名</th>
+        <th>年龄</th>
+        <th>图像</th>
+        <th>性别</th>
+        <th>职位</th>
+    </tr>
+    </thead>
+
+    <tbody id="empTbody">
+    </tbody>
+</table>
+
+<script>
+    // 访问后端接口 /listEmp
+    fetch('/listEmp')
+        .then(response => response.json())
+        .then(result => {
+            console.log(result);
+
+            const tbody = document.getElementById('empTbody');
+
+            // 判断后端是否成功返回数据
+            if (result.code === 1) {
+                const empList = result.data;
+
+                let html = '';
+
+                for (let i = 0; i < empList.length; i++) {
+                    const emp = empList[i];
+
+                    html += `
+                        <tr>
+                            <td>${emp.name}</td>
+                            <td>${emp.age}</td>
+                            <td>
+                                <img src="${emp.image}" alt="员工头像">
+                            </td>
+                            <td>${emp.gender}</td>
+                            <td>${emp.job}</td>
+                        </tr>
+                    `;
+                }
+
+                tbody.innerHTML = html;
+            } else {
+                tbody.innerHTML = `
+                    <tr>
+                        <td colspan="5">数据加载失败</td>
+                    </tr>
+                `;
+            }
+        })
+        .catch(error => {
+            console.log(error);
+
+            const tbody = document.getElementById('empTbody');
+            tbody.innerHTML = `
+                <tr>
+                    <td colspan="5">请求后端接口失败</td>
+                </tr>
+            `;
+        });
+</script>
+
+</body>
+</html>

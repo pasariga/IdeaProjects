@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<emps>
+    <emp>
+        <name>金毛狮王</name>
+        <age>55</age>
+        <image>1.jpg</image>
+        <gender>男</gender>
+        <job>讲师</job>
+    </emp>
+
+    <emp>
+        <name>白眉鹰王</name>
+        <age>65</age>
+        <image>2.jpg</image>
+        <gender>男</gender>
+        <job>讲师</job>
+    </emp>
+
+    <emp>
+        <name>青翼蝠王</name>
+        <age>45</age>
+        <image>3.jpg</image>
+        <gender>男</gender>
+        <job>班主任</job>
+    </emp>
+
+    <emp>
+        <name>紫衫龙王</name>
+        <age>38</age>
+        <image>4.jpg</image>
+        <gender>女</gender>
+        <job>就业指导</job>
+    </emp>
+</emps>
