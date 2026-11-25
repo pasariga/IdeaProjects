@@ -1,34 +1,26 @@
-[English](README.md) | [简体中文](README.zh-CN.md)
+[English](README.md) · [简体中文](README.zh-CN.md)
 
-# Java practice archive
+# IdeaProjects
 
-A collection of independent Java learning exercises and introductory web/database projects. The repository name remains `IdeaProjects`; it is a historical study archive, not one integrated application or a production framework.
+**A Java practice route from language basics to database-backed web apps.**
 
-## Repository map
+Pick an independent exercise from the route below. Each module has its own entry point and toolchain.
 
-| Directory | What to inspect |
-| --- | --- |
-| `Demo/`, `Demo02/` | Java syntax, object-oriented examples and progressively organized exercises. |
-| `Work/`, `HomeWork/`, `HomeWork_/` | Standalone practice and coursework; start with the individual source entry point. |
-| `DataBase/` | A Maven/JDBC driver-loading example. |
-| `Java_Web/` | Servlet, request and response exercises. |
-| `javaweb-session-cookie/` | Session/cookie and servlet-oriented web examples. |
-| `springboot-web-quickstart/` | Spring Boot web starter exercises. |
-| `Mybatis/` | Spring Boot/MyBatis database-integration exercises. |
+| Stage | Module | How to start |
+| --- | --- | --- |
+| Core Java and OOP | [Demo](Demo), [Demo02](Demo02), [Work](Work), [HomeWork](HomeWork) | Open the individual folder and run its Java entry point. |
+| JDBC | [DataBase](DataBase) | Use its Maven POM and JDK 25. Start with the driver-loading example. |
+| Servlet / HTTP | [Java_Web](Java_Web) | Read the parent and child POMs. Try the request and response modules first. |
+| Sessions and cookies | [javaweb-session-cookie](javaweb-session-cookie) | Run within the servlet environment specified by the project. The JDBC exercise needs a local database. |
+| Spring Boot | [springboot-web-quickstart](springboot-web-quickstart) | Use JDK 17 as declared by the starter POM. |
+| MyBatis | [MyBatis starter](Mybatis/springboot-quickstart), [nested MyBatis module](Mybatis/springboot-quickstart/mybatis) | The starter and nested module declare Java 17 and 25 respectively. Check the module POM and local database config. |
 
-The examples show a learning progression from basic Java to HTTP handling and persistence, not evidence that every module forms a complete feature or has passed a unified test suite. The history currently has a single initial import; no later optimization results can be inferred from it.
+## Local database practice
 
-## How to use the archive
-
-1. Choose one subproject and inspect its `pom.xml`, source tree and entry class.
-2. Import that subproject into an IDE, or compile/run its individual Java entry point where appropriate.
-3. For Maven projects, run commands from the directory containing that project's POM, not the repository root.
-4. Configure your own local database/container and servlet runtime when the exercise needs them.
-
-There is **no single JDK requirement**: the Spring Boot starter POMs declare Java 17, while `DataBase/pom.xml` declares Java 25 and its source uses a compact entry form. Verify each module's actual toolchain and dependencies before running it. No global version upgrade or clean-clone build was performed in this documentation task.
-
-Existing IDE metadata and some generated output are historical contents, not necessary setup instructions. Database schemas, credentials and external runtime availability are not standardized; do not connect an old exercise to a live production database. Do not publish new local credentials while configuring examples.
+Set `IDEA_PROJECTS_DB_PASSWORD` in your local environment before running the JDBC and MyBatis examples. Use a dedicated local test database. Existing IDE metadata and generated `target` files are historical. Build with the POM in the module you are studying. No repository-wide build result is claimed.
 
 ## Project boundaries and license
 
-This archive is separate from Snapline, Dayline, ZhiBi, WenHeng and OpenEssayScore. It should be presented as foundational practice rather than their implementation or a currently maintained product. Exact coursework origins and individual third-party exercise attribution remain to be confirmed. No repository-level license file is present; this README does not add a license grant. Existing source and history are unchanged.
+This archive is separate from Snapline, Dayline, ZhiBi, WenHeng and OpenEssayScore. It should be presented as foundational practice rather than their implementation or a currently maintained product. Exact coursework origins and individual third-party exercise attribution remain to be confirmed. No repository-level license file is present; this README does not add a license grant. Original history is preserved.
+
+[Report a documentation problem](https://github.com/pasariga/IdeaProjects/issues/new). A star helps other learners find the exercise index.
